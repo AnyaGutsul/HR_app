@@ -1,0 +1,67 @@
+<div class="homepage">
+    <div class="row">
+        <div class="col-10">
+            <img width="100" height="80" src="assets/logo.jpg">
+        </div>
+
+        <div class="col-2">
+            <button color="primary" mat-button routerLink=''>Logout</button>
+        </div>
+    </div>
+    <div class="table-users">
+        <div class="row s-fields">
+            <div class="col-sm-12 col-md-10 input-search">
+                <mat-form-field appearance="outline">
+                    <mat-label>Search field</mat-label>
+                    <input [formControl]="search" matInput required>
+                    <mat-error>You must enter a field to search</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-sm-12 col-md-2">
+                <button (click)="applyFilter()" class="b-search" color="primary" mat-flat-button>Search</button>
+            </div>
+        </div>
+        
+        <div *ngIf='showLastSearch'>
+            <div>
+                <strong>
+                    Last search results:
+                </strong>
+            </div>
+            <div class="items-history">
+                <div [routerLink]="['/user',searchNames.Id]" class="item" *ngFor="let searchNames of historySearch">
+                    {{searchNames.Full_Name}},
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="full_name">
+                <th mat-header-cell *matHeaderCellDef> Full Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.Full_Name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> Position </th>
+                <td mat-cell *matCellDef="let element"> {{element.Position}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr (click)="userInfo(row)" class="row-element" mat-row
+                *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+    </div>
+</div>

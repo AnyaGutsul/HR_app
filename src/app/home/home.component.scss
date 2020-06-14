@@ -1,0 +1,57 @@
+.homepage {
+  padding: 15px 15px;
+}
+
+.table-users {
+  max-width: 850px;
+  margin: 25px auto;
+}
+
+table {
+  width: 100%;
+  overflow: auto;
+}
+
+.s-fields {
+  margin-bottom: 5%;
+}
+
+.input-search {
+  height: 55px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.b-search {
+  width: 100%;
+  height: 100%;
+}
+
+tr.row-element:not(.example-expanded-row):hover {
+  background: #efefef;
+  cursor: pointer;
+}
+
+.items-history {
+  margin-bottom: 20px;
+  font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid black;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  td.mat-cell:first-of-type {
+    padding-right: 24px;
+    padding-left: 0px;
+  }
+}
